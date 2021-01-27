@@ -40,11 +40,11 @@ namespace psDLC
             oWeb.Headers.Add("Referer", "https://store.playstation.com/");
             if (isStore == true)
             {
-                oWeb.DownloadStringAsync(new Uri("https://store.playstation.com/" + Region + "/grid/" + TitleID + "/" + Pagenumber));
+                oWeb.DownloadStringAsync(new Uri("https://store.playstation.com/" + Region + "/grid/" + TitleID + "/" + Pagenumber + "?smcid=psapp"));
             }
             else
             {
-                oWeb.DownloadStringAsync(new Uri("https://store.playstation.com/" + Region + "/grid/" + TitleID + "/" + Pagenumber + "?relationship=add-ons"));
+                oWeb.DownloadStringAsync(new Uri("https://store.playstation.com/" + Region + "/grid/" + TitleID + "/" + Pagenumber + "?relationship=add-ons&smcid=psapp"));
             }
         }
 

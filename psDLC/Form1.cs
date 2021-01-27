@@ -365,7 +365,7 @@ namespace psDLC
                 Button2.Visible = false;
                 Button3.Visible = false;
                 linkLabel1.Text = "";
-                Text = "psDLC";  
+                Text = "psDLC2";  
                 textBox1.SelectionStart = textBox1.Text.Length;
                 textBox1.SelectionLength = 0;
 
