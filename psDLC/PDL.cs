@@ -218,9 +218,9 @@ namespace psDLC
             PDL DataEvent = new PDL();
             if (e.Error == null)
             {
+                GotImage(this, DataEvent);
                 if (Globals.Downloaded == false)
                     Globals.Downloaded = true;
-                GotImage(this, DataEvent);
             }
             else
             {
