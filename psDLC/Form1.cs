@@ -8,6 +8,7 @@ using System.Net;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
+
 namespace psDLC
 {
     public partial class Form1 : Form
@@ -99,6 +100,8 @@ namespace psDLC
             linkLabel1.Top = LV1.Bottom + 10;
             Button2.Left = LV1.Right - Button2.Width;
             Button3.Left = LV1.Right - Button3.Width;
+            Button6.Top = LV1.Bottom + 5;
+            Button6.Left = LV1.Right - Button2.Width - Button6.Width - 5;
             textBox2.Top = Button2.Bottom + 8;
             textBox2.Width = Width - 33;
         }
@@ -215,6 +218,7 @@ namespace psDLC
                 if (ContentID.Length >= 19)
                 {
                     Button3.Visible = true;
+                    Button6.Visible = true;
                     pageNum = 1;
                     htmBuffer = string.Empty;
                     titleID = Strings.Mid(ContentID, 8, 12);
@@ -364,6 +368,7 @@ namespace psDLC
                 textBox2.Clear();
                 Button2.Visible = false;
                 Button3.Visible = false;
+                Button6.Visible = false;
                 linkLabel1.Text = "";
                 Text = "psDLC2";  
                 textBox1.SelectionStart = textBox1.Text.Length;
@@ -456,6 +461,30 @@ namespace psDLC
             else
             {
                 AppLog("ERROR: orbis-pub-cmd.exe not found" + Environment.NewLine + "You need to place orbis-pub-cmd.exe in the same directory as this application");
+            }
+        }
+
+        private void Button6_Click(object sender, EventArgs e)
+        {
+            int LV1Count = LV1.Items.Count;
+
+            for(int LV1Index = 0; LV1Index < LV1Count; LV1Index++)
+            {
+                Globals.Downloaded = false;
+
+                LV1.Items[LV1Index].Focused = true;
+                LV1.Items[LV1Index].EnsureVisible();
+                LV1.Items[LV1Index].Selected = true;
+
+
+                Button2_Click(null,null);
+
+                while (Globals.Downloaded == false)
+                {
+                    Application.DoEvents();
+
+                    System.Threading.Thread.Sleep(50);
+                }
             }
         }
 

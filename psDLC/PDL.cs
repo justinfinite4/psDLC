@@ -5,6 +5,10 @@ using System.Text;
 
 namespace psDLC
 {
+    public static class Globals
+    {
+        public static bool Downloaded = false;
+    }
     class PDL
     {
         
@@ -214,6 +218,8 @@ namespace psDLC
             PDL DataEvent = new PDL();
             if (e.Error == null)
             {
+                if (Globals.Downloaded == false)
+                    Globals.Downloaded = true;
                 GotImage(this, DataEvent);
             }
             else
