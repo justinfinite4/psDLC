@@ -476,7 +476,6 @@ namespace psDLC
                 LV1.Items[LV1Index].EnsureVisible();
                 LV1.Items[LV1Index].Selected = true;
 
-
                 Button2_Click(null,null);
 
                 while (Globals.Downloaded == false)
@@ -739,7 +738,7 @@ namespace psDLC
             if (LvItem != null)
             {
                 textBox2.Clear();
-                linkLabel1.Text = LvItem.SubItems[3].Text;
+                linkLabel1.Text = LvItem.SubItems[3].Text + "?smcid=psapp";
                 selName = LvItem.Text;
                 selCid = LvItem.SubItems[3].Text;
                 selImg = LvItem.SubItems[4].Text;
