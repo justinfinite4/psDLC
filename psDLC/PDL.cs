@@ -48,7 +48,7 @@ namespace psDLC
             }
             else
             {
-                oWeb.DownloadStringAsync(new Uri("https://store.playstation.com/" + Region + "/grid/" + TitleID + "/" + Pagenumber + "?smcid=psapp"));//?relationship=add-ons"
+                oWeb.DownloadStringAsync(new Uri("https://store.playstation.com/" + Region + "/grid/" + TitleID + "/" + Pagenumber + "?gameContentType=addons&smcid=psapp"));
             }
         }
 
